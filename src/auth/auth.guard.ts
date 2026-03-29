@@ -23,7 +23,7 @@ export class AuthGuard implements CanActivate {
         secret: process.env.SECRET_KEY,
       })
 
-      request.userId = payload;
+      request['sub'] = payload;
     } catch (error) {
       throw new UnauthorizedException('Invalid token');
     }
